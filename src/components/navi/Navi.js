@@ -18,7 +18,7 @@ const Example = (props) => {
   return (
     <div>
       <Navbar  color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <NavbarBrand href="/">Store App</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse className="d-flex justify-content-end" isOpen={isOpen} navbar>
           <Nav  navbar>
