@@ -23,7 +23,7 @@ const Example = (props) => {
         <Collapse className="d-flex justify-content-end" isOpen={isOpen} navbar>
           <Nav  navbar>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
+              <NavLink href="https://github.com/sefaozturkmen" target="_blank">
                 GitHub
               </NavLink>
             </NavItem>

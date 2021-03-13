@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
   NavItem,
-  NavLink,
   Badge,
+  NavLink,
 } from "reactstrap";
 import { bindActionCreators } from "redux";
 import * as cartActions from "../../redux/actions/cartActions";
@@ -19,7 +20,9 @@ class CartSummary extends Component {
   renderEmpty() {
     return (
       <NavItem>
-        <NavLink>Sepetiniz Boş</NavLink>
+        <NavLink>
+        <Link to="/cart" >Sepetiniz Boş</Link>
+        </NavLink>
       </NavItem>
     );
   }
@@ -27,18 +30,18 @@ class CartSummary extends Component {
     return (
       <UncontrolledDropdown nav inNavbar>
         <DropdownToggle nav caret>
-          Sepet
+          Sepet  <Badge color="warning" >{this.props.cart.length} </Badge>
         </DropdownToggle>
         <DropdownMenu right>
           {this.props.cart.map((cartItem) => (
             <DropdownItem key={cartItem.product.id}>
               <Badge color="danger" onClick={() => this.cartItem(cartItem)}>X</Badge>
               {cartItem.product.productName}
-              <Badge> {cartItem.quantity} </Badge>
+              <Badge color="warning" > {cartItem.quantity} </Badge>
             </DropdownItem>
           ))}
           <DropdownItem divider />
-          <DropdownItem>Sepete Git</DropdownItem>
+          <DropdownItem> <Link to="/cart" >Sepete Git</Link></DropdownItem>
         </DropdownMenu>
       </UncontrolledDropdown>
     );

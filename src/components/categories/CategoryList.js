@@ -10,6 +10,10 @@ class CategoryList extends Component {
     this.props.actions.getCategories();
   }
 
+  getProducts = () => {
+    this.props.actions.getProducts();
+  };
+
   selectCategory = (category) => {
     this.props.actions.changeCategory(category);
     this.props.actions.getProducts(category.id);
@@ -22,6 +26,11 @@ class CategoryList extends Component {
           <Badge color="danger">CategoryList</Badge>
         </h3>
         <ListGroup>
+          <ListGroupItem
+            onClick={() => this.getProducts()}
+          >
+            All Products
+          </ListGroupItem>
           {this.props.categories.map((category) => (
             <ListGroupItem
               active={category.id === this.props.currentCategory.id}
